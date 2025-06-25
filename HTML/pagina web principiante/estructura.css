@@ -1,0 +1,161 @@
+/* ===== Estilos generales ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000;
+  color: #ddd;
+  padding: 20px 40px;
+}
+
+/* ===== Caja sticky superior ===== */
+.box#stickyBox {
+  position: sticky;
+  top: 0;
+  background: #111111;
+  padding: 15px 20px;
+  border-bottom: 1px solid #222;
+  z-index: 999;
+  text-align: center;
+  color: #1e90ff;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 6px rgba(30, 144, 255, 0.7);
+  transition: opacity 0.4s ease-in-out; /* animación suave */
+}
+
+
+/* ===== Títulos ===== */
+h2, h3, h4 {
+  color: #1e90ff;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
+
+/* ===== Contenedor tarjetas ===== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background: #121212;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 160px;
+  height: 200px;
+  display: flex;
+  align-items: center;      /* Centra verticalmente */
+  justify-content: center;  /* Centra horizontalmente */
+  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+  transition: box-shadow 0.25s ease;
+  cursor: pointer;
+  text-align: center;       /* Para casos de texto */
+}
+
+.card img {
+  max-width: 90%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 6px rgba(30, 144, 255, 0.4));
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;  /* Esto asegura centrado horizontal */
+}
+
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(30, 144, 255, 0.7);
+}
+
+.card img {
+  max-width: 90%;
+  max-height: 140px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 6px rgba(30, 144, 255, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  color: #777;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer section {
+  margin-top: 15px;
+}
+
+/* ===== Botones ir arriba y formulario ===== */
+.go-top {
+  background-color: #1e90ff;
+  color: white;
+  padding: 9px 18px;
+  margin: 0 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(30, 144, 255, 0.7);
+}
+
+.go-top:hover {
+  background-color: #0d5bbf;
+  box-shadow: 0 4px 16px rgba(13, 91, 191, 0.9);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  footer p {
+    font-size: 0.85rem;
+  }
+  .go-top {
+    padding: 8px 14px;
+    margin: 5px 5px;
+  }
+}
+
+

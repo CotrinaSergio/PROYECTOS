@@ -1,0 +1,85 @@
+/* === GENERAL === */
+body {
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+  color: #f0e9ff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+main.contenido {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(31, 28, 44, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(146, 141, 171, 0.5);
+}
+
+/* === TÍTULOS === */
+h1 {
+  font-size: 2.8em;
+  color: #c060ff; /* Morado neón */
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #c060ff88;
+}
+
+h2 {
+  font-size: 1.6em;
+  color: #d9b3ff; /* Lila claro */
+  margin-top: 40px;
+  text-shadow: 0 0 6px #d9b3ff88;
+}
+
+/* === PÁRRAFOS Y LISTAS === */
+p, ul {
+  font-size: 1.1em;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 20px auto;
+  padding: 0 20px;
+  color: #e6e0ff;
+  text-shadow: 0 0 3px #382c5a;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 40px;
+  text-align: left;
+}
+
+/* === IMAGEN DEL JUEGO === */
+.banner {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 30px #c060ff88;
+  border: 3px solid #c060ff;
+}
+
+/* === BOTÓN VOLVER === */
+.btn-volver {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #c060ff; /* Morado neón */
+  color: #1f1c2c;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 4px 15px #c060ffaa;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #a040db;
+  color: #f0e9ff;
+  box-shadow: 0 0 25px #a040dbcc;
+}
+

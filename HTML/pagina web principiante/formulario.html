@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario completo</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="formulario.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f0f2f5;
+      color: black;
+    }
+    textarea {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+    #Cantidad {
+      font-weight: bold;
+      color: #27ae60;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .btn-volver {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 15px #ffffffaa;
+      z-index: 1000;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <a href="estructura.html" class="btn-volver">← Volver a la página principal</a>
+  <h1>Formulario de contacto</h1>
+
+  <form id="miFormulario">
+    <input type="text" name="username" placeholder="Nombre de usuario" required><br><br>
+    <input type="text" name="cedula" placeholder="Cédula" required><br><br>
+    <input type="tel" name="telefono" placeholder="Teléfono" required><br><br>
+    <input type="email" name="email" placeholder="Correo electrónico" required><br><br>
+    <input type="date" name="fecha" required><br><br>
+
+    <label><input type="radio" name="genero" value="masculino" required> Masculino</label>
+    <label><input type="radio" name="genero" value="femenino"> Femenino</label><br><br>
+
+    <input type="file" name="archivo" required><br><br>
+
+    <label for="paisSelect">Selecciona tu país:</label><br>
+    <select name="pais" id="paisSelect" required>
+      <option value="">-- Selecciona tu país --</option>
+      <option value="ar">Argentina</option>
+      <option value="br">Brasil</option>
+      <option value="cl">Chile</option>
+      <option value="co">Colombia</option>
+      <option value="mx">México</option>
+      <option value="es">España</option>
+      <option value="us">Estados Unidos</option>
+      <option value="fr">Francia</option>
+      <option value="de">Alemania</option>
+      <option value="it">Italia</option>
+    </select>
+    <div id="banderaContenedor" style="margin-top: 10px;">
+      <img id="bandera" src="" alt="Bandera del país" style="height: 40px; display: none;">
+    </div><br>
+
+    <h3>Categorías de juegos</h3>
+    <div style="text-align: left; display: inline-block;">
+      <label><input type="checkbox" name="intereses" value="accion"> Acción</label><br>
+      <label><input type="checkbox" name="intereses" value="supervivencia"> Supervivencia</label><br>
+      <label><input type="checkbox" name="intereses" value="deportes"> Deportes</label><br>
+      <label><input type="checkbox" name="intereses" value="estrategia"> Estrategia</label><br>
+      <label><input type="checkbox" name="intereses" value="rol"> Rol</label><br>
+      <label><input type="checkbox" name="intereses" value="lucha"> Lucha</label><br>
+      <label><input type="checkbox" name="intereses" value="sandbox"> Sandbox</label><br>
+      <label><input type="checkbox" name="intereses" value="narrativos"> Narrativos</label><br>
+      <label><input type="checkbox" name="intereses" value="carreras"> Carreras</label><br>
+      <label><input type="checkbox" name="intereses" value="simulacion"> Simulación</label><br>
+      <label><input type="checkbox" name="intereses" value="puzzle"> Puzzle</label><br>
+      <label><input type="checkbox" name="intereses" value="arcade"> Arcade</label><br>
+      <label><input type="checkbox" name="intereses" value="mundoabierto"> Mundo Abierto</label><br>
+      <label><input type="checkbox" name="intereses" value="terror"> Terror</label><br>
+      <label><input type="checkbox" name="intereses" value="aventura"> Aventura</label><br>
+      <label><input type="checkbox" name="intereses" value="musical"> Musical</label><br>
+    </div><br><br>
+
+    <h4>Comentarios</h4>
+    <textarea id="texto" rows="6" maxlength="1000" placeholder="Escribe tu comentario..." required></textarea>
+    <p>Caracteres disponibles: <span id="Cantidad">1000</span></p><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    // Contador de caracteres
+    const textareaElement = document.getElementById('texto');
+    const CantidadSpan = document.getElementById('Cantidad');
+    const limiteCaracteres = 1000;
+
+    textareaElement.addEventListener('input', actualizarContadorCarecteres);
+
+    function actualizarContadorCarecteres() {
+      let cantidadActual = textareaElement.value.length;
+      let disponible = limiteCaracteres - cantidadActual;
+      CantidadSpan.textContent = disponible;
+
+      if (disponible <= 10 && disponible > 0) {
+        CantidadSpan.style.color = '#f39c12';
+      } else if (disponible === 0) {
+        CantidadSpan.style.color = '#e74c3c';
+        swal('Límite alcanzado', `No puedes escribir más de ${limiteCaracteres} caracteres.`, 'warning');
+      } else {
+        CantidadSpan.style.color = '#27ae60';
+      }
+    }
+
+    // Mostrar bandera al seleccionar país
+    const selectPais = document.getElementById('paisSelect');
+    const banderaImg = document.getElementById('bandera');
+
+    selectPais.addEventListener('change', function () {
+      const codigo = this.value.toLowerCase();
+
+      if (codigo) {
+        banderaImg.src = `https://flagcdn.com/w80/${codigo}.png`;
+        banderaImg.style.display = 'inline';
+      } else {
+        banderaImg.style.display = 'none';
+      }
+    });
+
+    // Validación del formulario al enviar
+    document.getElementById('miFormulario').addEventListener('submit', function (e) {
+      e.preventDefault(); // Evita que se envíe automáticamente
+
+      const form = e.target;
+
+      // Verifica si algún campo obligatorio no está completo
+      if (!form.checkValidity()) {
+        swal("Formulario incompleto", "Por favor completa todos los campos obligatorios.", "error");
+        return;
+      }
+
+      // Verifica que al menos una categoría esté seleccionada
+      const checkboxes = form.querySelectorAll('input[name="intereses"]:checked');
+      if (checkboxes.length === 0) {
+        swal("Selecciona una categoría", "Debes seleccionar al menos una categoría de juego.", "warning");
+        return;
+      }
+
+      // Si todo está correcto
+      swal("Formulario enviado", "¡Gracias por completar el formulario!", "success");
+      form.reset();
+      banderaImg.style.display = 'none';
+      CantidadSpan.textContent = limiteCaracteres;
+      CantidadSpan.style.color = '#27ae60';
+    });
+  </script>
+
+</body>
+</html>

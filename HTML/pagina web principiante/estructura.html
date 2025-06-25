@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estructura.css">
+    <title>Recomendaciones de Juegos</title>
+</head>
+<body id="top">
+    <div class="box" id="stickyBox"><h1>TIME GAME</h1></div>
+    <h2>!Bienvenidos a esta review donde te enseñaremos los mejores juegos moviles de cada categoria¡</h2>
+    <h2>A continuacion te presentamos los juegos más descargados por la comunidad gamer de dispositivos moviles, teniendo en cuenta la categoria presentada y la calificacion de los jugadores basada segun los datos recolectados en la web, foros y encuestas realizadas a los usuarios de dispositivos moviles</h2>
+    <h3>Categorias</h3>
+    <h4>Juegos de accion</h4>
+<div class="container">
+    <div class="card">
+        <a href="bloodstrike.html"><img src="blood.jpg" alt="Bloodstrike"></a>
+    </div>
+
+    <div class="card">
+        <a href="Fortnite.html"><img src="uoy4PHF2_400x400.jpg" alt="Fortnite"></a>
+    </div>
+
+    <div class="card">
+        <a href="callofduty.html"><img src="callofduty.jpg" alt="Call of Duty"></a>
+    </div>
+
+    <div class="card">
+        <a href="freefire.html"><img src="free%20fire.png" alt="Free Fire"></a>
+    </div>
+</div>
+    <h4>Juegos de supervivencia</h4>
+    <div class="container">
+        <div class="card">
+            <a href="minecraft.html"><img src="https://thomasonline.co.nz/wp-content/uploads/2022/06/Minecraft-Logo-Thomas-Online-NZ.jpg" alt="Minecraft"></a>
+        </div>
+        <div class="card">
+            <a href="terraria.html"><img src="https://th.bing.com/th/id/OIP._6XnatGPnT8qCNVsKsGsmwHaHa?rs=1&pid=ImgDetMain" alt="Terraria"></a>
+        </div>
+        <div class="card">
+            <a href="the forest.html"><img src="https://th.bing.com/th/id/R.9ae65876d433def1914cf12cc6080acd?rik=qe7HiLPoUry1LA&pid=ImgRaw&r=0" alt="The Forest"></a>
+        </div>
+        <div class="card">
+            <a href="once human.html"><img src="https://th.bing.com/th/id/OIP.l-hmg8MvjiuDDE9MiFiBIQHaHa?rs=1&pid=ImgDetMain" alt="Once Human"></a>
+        </div>
+    </div>
+    
+    <footer>
+  <p>Este top está basado de acuerdo a la experiencia de los usuarios, las calificaciones en la appstore y playstore y en opiniones independientes.</p>
+  <section>
+    <a href="#top" class="go-top">↑ Ir al comienzo
+    <a href="formulario.html" class="go-top" style="margin-left: 20px;">📋 Ir al formulario</a>
+  </section>
+</footer>
+<script>
+  window.addEventListener('scroll', () => {
+    const stickyBox = document.getElementById('stickyBox');
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    const fadeStart = 50;  // empieza a desaparecer
+    const fadeEnd = 200;   // desaparece completamente
+
+    if (scrollY <= fadeStart) {
+      stickyBox.style.opacity = '1';
+    } else if (scrollY >= fadeEnd) {
+      stickyBox.style.opacity = '0';
+    } else {
+      // Cálculo progresivo de opacidad entre 1 y 0
+      const opacity = 1 - ((scrollY - fadeStart) / (fadeEnd - fadeStart));
+      stickyBox.style.opacity = opacity;
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
